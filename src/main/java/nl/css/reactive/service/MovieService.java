@@ -5,6 +5,7 @@ import nl.css.reactive.model.MovieDTO;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.util.UUID;
 
@@ -16,6 +17,10 @@ public class MovieService {
         return Flux.just(MovieDTO.builder().id(UUID.randomUUID().toString()).build(),
                 MovieDTO.builder().id(UUID.randomUUID().toString()).build(),
                 MovieDTO.builder().id(UUID.randomUUID().toString()).build());
+    }
+
+    public Mono<MovieDTO> getMovieById(String movieId) {
+        return Mono.just(MovieDTO.builder().id(movieId).title("Terminator 1").build());
     }
 
 }
