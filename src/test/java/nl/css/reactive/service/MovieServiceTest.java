@@ -21,7 +21,6 @@ class MovieServiceTest {
 
     @Test
     public void shouldReturnMovieByID() {
-
         String movieId = "TTTTTTT";
         Mono<MovieDTO> movieDTO = movieService.getMovieById(movieId).log();
         movieDTO.map(mapper).subscribe(s -> System.out.println("s => " + s));
